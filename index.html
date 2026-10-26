@@ -3,43 +3,143 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My practice page</title>
+  <title>Card Table Practice Page</title>
   <style>
     :root {
-      --page: #ffffff;
-      --text: #1d2433;
+      --page: #f3f6f8;
+      --panel: #ffffff;
+      --text: #17212b;
+      --muted: #52616f;
+      --accent: #0b5c73;
+      --accent-text: #ffffff;
+      --line: #c9d4dc;
+      --notice: #fff4c2;
+      --notice-text: #4a3b00;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --page: #14181f;
-        --text: #eef1f6;
+        --page: #11181e;
+        --panel: #1a242c;
+        --text: #e9eff3;
+        --muted: #a8b6c2;
+        --accent: #5cc4de;
+        --accent-text: #0b1a20;
+        --line: #33434f;
+        --notice: #3d3410;
+        --notice-text: #ffe9a0;
       }
     }
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
+    * { box-sizing: border-box; }
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin: 0;
       background: var(--page);
       color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      padding: 1.5rem;
-      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.55;
     }
-    h1 {
-      font-size: clamp(2rem, 8vw, 3.5rem);
-      font-weight: 700;
+    .notice {
+      background: var(--notice);
+      color: var(--notice-text);
+      padding: 0.6rem 1rem;
       text-align: center;
-      margin: 0;
+      font-weight: 600;
     }
+    header, main, footer {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    header { padding-top: 2rem; padding-bottom: 0.5rem; }
+    h1 {
+      font-size: clamp(1.9rem, 6vw, 2.75rem);
+      line-height: 1.15;
+      margin: 0 0 0.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin: 0 0 0.6rem;
+      color: var(--accent);
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+    }
+    p { margin: 0 0 0.75rem; max-width: 40rem; }
+    p:last-child { margin-bottom: 0; }
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 20rem;
+    }
+    caption {
+      text-align: left;
+      color: var(--muted);
+      padding-bottom: 0.5rem;
+    }
+    th, td {
+      padding: 0.6rem 0.5rem;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+    th { border-bottom: 2px solid var(--accent); }
+    th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    footer { padding-top: 0.5rem; padding-bottom: 2rem; color: var(--muted); }
   </style>
 </head>
 <body>
+  <div class="notice">Practice page: every card, price, and count here is fictional.</div>
+
+  <header>
+    <h1>Card Table Practice Page</h1>
+    <p>A practice version of a pricing page for people who buy and sell trading cards at conventions or in a shop.</p>
+  </header>
+
   <main>
-    <h1>My practice page</h1>
+    <section id="overview">
+      <h2>What this page shows</h2>
+      <p>Each card below has a sample value and a count of how many are in stock at this table. Use it to see how a pricing page could be laid out.</p>
+      <p>Searching the list comes next. Live prices and inventory that saves are planned for a later project.</p>
+    </section>
+
+    <section id="card-list">
+      <h2>Card list</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Sample cards, values, and stock</caption>
+          <thead>
+            <tr>
+              <th scope="col">Card name</th>
+              <th scope="col" class="num">Sample value</th>
+              <th scope="col" class="num">In stock here</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Ember Wyrm</td><td class="num">$12.50</td><td class="num">3</td></tr>
+            <tr><td>Tidecaller Sage</td><td class="num">$4.25</td><td class="num">8</td></tr>
+            <tr><td>Moss Golem</td><td class="num">$1.75</td><td class="num">14</td></tr>
+            <tr><td>Stormglass Falcon</td><td class="num">$22.00</td><td class="num">1</td></tr>
+            <tr><td>Lantern Fox</td><td class="num">$3.00</td><td class="num">9</td></tr>
+            <tr><td>Cinder Imp</td><td class="num">$0.75</td><td class="num">25</td></tr>
+            <tr><td>Hollow Oak Knight</td><td class="num">$7.80</td><td class="num">4</td></tr>
+            <tr><td>Frostmoth Queen</td><td class="num">$35.00</td><td class="num">2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="about-data">
+      <h2>About the sample data</h2>
+      <p>The card names are invented and do not belong to any real game. The values and counts are made up for practice, they do not update, and they should not be used to price real cards.</p>
+    </section>
   </main>
+
+  <footer>
+    <p>Classroom practice project. All content on this page is fictional.</p>
+  </footer>
 </body>
 </html>
